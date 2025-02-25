@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-4">{{ property.title }}</h1>
+    {% if property.image %}
+    <img src="{{ property.image.url }}" alt="{{ property.title }}" class="w-full h-64 object-cover mb-4">
+    {% endif %}
+    <p class="text-gray-700 mb-4">{{ property.description }}</p>
+    <p class="text-gray-600">Type: {{ property.get_property_type_display }}</p>
+    <p class="text-gray-600">Location: {{ property.location }}</p>
+    <p class="text-gray-600">Rent: ¥{{ property.rent }}/mo</p>
+    <p class="text-gray-600">Deposit: ¥{{ property.deposit }}</p>
+    <p class="text-gray-600">Distance to Noodle Shop: {{ property.distance_to_noodle_shop }} km</p>
+    <p class="text-gray-600">Available From: {{ property.available_from }}</p>
+    <a href="{% url 'edit_property' property.pk %}" class="bg-yellow-500 text-white px-4 py-2 rounded">Edit</a>
+    <a href="{% url 'delete_property' property.pk %}" class="bg-red-500 text-white px-4 py-2 rounded">Delete</a>
+</div>
+{% endblock %}

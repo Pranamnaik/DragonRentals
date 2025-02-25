@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto py-8">
+    <h2 class="text-2xl font-bold mb-6">List Your Property</h2>
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="space-y-4">
+                {% for field in form %}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <p class="text-sm text-red-600">{{ field.errors|join:", " }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="mt-6 w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
