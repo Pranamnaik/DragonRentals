@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <form method="GET" action="{% url 'property_search' %}" class="mb-6">
     <div class="flex flex-col md:flex-row md:space-x-4">
         <input type="text" name="title" placeholder="Search by title" class="border rounded p-2">
@@ -15,7 +16,7 @@
         <input type="number" name="min_rent" placeholder="Min Rent" class="border rounded p-2">
         <input type="number" name="max_rent" placeholder="Max Rent" class="border rounded p-2">
         <input type="date" name="available_from" class="border rounded p-2">
-        <button type="submit" class="bg-blue-500 text-white rounded p-2">Search</button>
+        <button type="submit" class="bg-blue-600 text-white rounded p-2">Search</button>
     </div>
 </form>
 
@@ -23,7 +24,7 @@
     <h1 class="text-3xl font-bold mb-6">Welcome to Dragon Rentals</h1>
 
     <div class="bg-white p-6 rounded-lg shadow-lg" v-for="property in properties" :key="property.id">
-        <img :src="property.image.url" alt="Property Image" class="w-full h-48 object-cover rounded">
+        
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for property in properties %}
