@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form method="GET" action="{% url 'property_search' %}" class="mb-6">
+<form method="GET" action="{% url 'property_search' %}" class="mb-6 flex justify-center">
     <div class="flex flex-col md:flex-row md:space-x-4">
         <input type="text" name="title" placeholder="Search by title" class="border rounded p-2">
         <input type="text" name="location" placeholder="Search by location" class="border rounded p-2">
@@ -57,5 +57,6 @@
         </div>
 
     </div>
+ 
 </div>
 {% endblock %}
