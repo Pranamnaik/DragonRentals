@@ -51,7 +51,13 @@ def create_property(request):
 @login_required
 def property_detail(request, pk):
     property = get_object_or_404(Property, pk=pk)
-    return render(request, 'listings/property_detail.html', {'property': property})
+    landlord = property.landlord  # Get the landlord information
+    return render(request, 'listings/property_detail.html', {
+        'property': property,
+        'landlord_name': landlord.username,
+        'landlord_phone': landlord.phone_number
+    })
+
 
 @login_required
 def edit_property(request, pk):
