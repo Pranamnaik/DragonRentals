@@ -9,6 +9,17 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   
 </head>
+<style>
+    /* Only adding necessary styles that Tailwind doesn't cover */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-fadeIn {
+        animation: fadeIn 0.6s ease-out forwards;
+    }
+</style>
 <body class="bg-gray-100 transition-colors duration-300">
     <nav class="bg-white shadow-lg transition-shadow duration-300">
         <div class="max-w-6xl mx-auto px-4">

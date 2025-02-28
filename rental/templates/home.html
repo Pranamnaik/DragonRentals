@@ -64,13 +64,22 @@
       
       <div class="mt-12 text-center">
         <a href="{% url 'create_property' %}" 
-           class="bg-indigo-600 text-white px-6 py-3 rounded-lg transform hover:scale-105 hover:bg-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg">
+           class="bg-indigo-600 text-white px-6 py-3 rounded-lg transform hover:scale-105 hover:bg-indigo-700 transition-all duration-500 shadow-md hover:shadow-lg">
           List Your Property
         </a>
       </div>
     </div>
   </div>
 </div>
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+</style>
 
 {% endblock %}
