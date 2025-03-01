@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto py-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold mb-6">Your Profile</h2>
+        
+        <div class="flex items-center space-x-6 mb-8">
+            {% if user.profile_picture %}
+            <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="w-24 h-24 rounded-full object-cover">
+            {% endif %}
+            <div>
+                <h3 class="text-xl font-semibold">{{ user.username }}</h3>
+                <p class="text-gray-600">{{ user.email }}</p>
+                {% if user.is_landlord %}
+                <span class="text-sm text-green-600">Landlord</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div>
+                <h4 class="font-semibold mb-2">Contact Information</h4>
+                <p class="text-gray-600">Phone: {{ user.phone_number|default:"Not provided" }}</p>
+            </div>
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4">Your Listings</h3>
+        {% if properties %}
+        <div class="grid grid-cols-1 gap-4">
+            {% for property in properties %}
+            <div class="border p-4 rounded-lg">
+                <h4 class="font-semibold">{{ property.title }}</h4>
+                <p class="text-gray-600">{{ property.location }}</p>
+                <p class="text-gray-600">¥{{ property.rent }}/mo</p>
+                <a href="{% url 'property_detail' property.pk %}" class="text-blue-500 hover:text-blue-700">View Details</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-gray-600">You haven't listed any properties yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
