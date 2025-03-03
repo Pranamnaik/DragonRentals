@@ -1,3 +1,1 @@
-Dragon Rentals
-It is deployed in render.
-https://dragonrentals.onrender.com
+Dragon Rentals is deployed on render https://dragonrentals.onrender.com
